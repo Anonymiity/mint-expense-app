@@ -2,10 +2,19 @@
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
   "installCommand": "npm install && npm --prefix client install",
-  "functions": {
-    "api/[...path].js": { "maxDuration": 30 }
-  },
+  "functions": {"api/[...path].js": {"maxDuration": 30}},
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api",
+     "destination": "/api/[...path]"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/[...path]"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
