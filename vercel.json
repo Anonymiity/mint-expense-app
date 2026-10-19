@@ -1,20 +1,28 @@
+
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "client/dist",
-  "installCommand": "npm install && npm --prefix client install",
-  "functions": {"api/[...path].js": {"maxDuration": 30}},
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "client": {
+      "root": "client",
+      "framework": "vite"
+    },
+    "server": {
+      "root": "server",
+      "framework": "express"
+    }
+  },
   "rewrites": [
     {
-      "source": "/api",
-     "destination": "/api/[...path]"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/[...path]"
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "server"
+      }
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": {
+        "service": "client"
+      }
     }
   ]
 }
