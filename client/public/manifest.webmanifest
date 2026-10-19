@@ -1,0 +1,13 @@
+{
+  "name": "Mint Expense Tracker",
+  "short_name": "Mint",
+  "description": "A lightweight personal expense tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4fff8",
+  "theme_color": "#79c99b",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
